@@ -66,13 +66,32 @@ print("-"*50)
 **********************************************************************************
 Ahora responde a las siguientes preguntas:
 **********************************************************************************
+1.- Prueba con diferentes valores de rho. ¿Qué observas? ¿Porqué crees que pase eso?
+    Si rho>0.5, el agente arriesga más porque es más probable ganar.
+    Si rho<0.5, apuesta menos porque perder es más fácil.
+    Si rho=0.5, el agente no arriesga nada porque no tiene sentido.
+    Si rho=0, el agente no avanza nada porque no tiene sentido.
 
-- Prueba con diferentes valores de rho. ¿Qué observas? ¿Porqué crees que pase eso?
-- Prueba con diferentes valores de gama. ¿Qué observas? ¿Porqué crees que pase eso?
-- ¿Qué tan diferente es la política óptima de SARSA y Q-learning?
-- ¿Cambia mucho el resultado cambiando los valores de recompensa?
-- ¿Cuantas iteraciones se necesitan para que funcionen correctamente los algoritmos?
-- ¿Qué pasaria si ahora el estado inicial es cualquier estado de la mitad para abajo?
+2.- Prueba con diferentes valores de gama. ¿Qué observas? ¿Porqué crees que pase eso?
+    Si gamma es muy alto, el agente arriesga más porque le importa más el futuro.
+    Si gamma es muy bajo, el agente arriesga menos porque le importa más el presente.
+    Si gamma=0, el agente no arriesga nada porque no tiene sentido.
+
+3.- ¿Qué tan diferente es la política óptima de SARSA y Q-learning?
+    SARSA aprende según lo que realmente hace el agente.
+    Q-learning aprende como si siempre tomara la mejor acción.
+    SARSA suele ser más conservador y Q-learning más agresivo.
+
+4.- ¿Cambia mucho el resultado cambiando los valores de recompensa?
+    Sí, puede cambiar dependiendo de cómo se premien las acciones.
+    Si la recompensa solo se da al llegar a la meta, el agente busca llegar ahí rápido.
+    Si das más recompensas en el camino, puede que el agente prefiera otras rutas.
+    Depende de qué tanto premies cada parte del juego.
+
+6.- ¿Qué pasa si el costo de usar el camión es mayor que el de caminar?
+    El juego sería más difícil.
+    El agente empieza con menos dinero y más lejos de la meta.
+    Entonces tiene más riesgo de perder, y probablemente apueste menos o le tome más tiempo aprender a ganar.
 **********************************************************************************
 
 """

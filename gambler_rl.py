@@ -59,13 +59,32 @@ print("-"*10 + '|' + "-"*10 + '|' + "-"*10)
 Responde las siguientes preguntas:
 ***************************************************************************************
 1. ¿Qué pasa si se modifica el valor de epsilón de la política epsilon-greedy?
+    Si tiene un valor es muy alto (0.9), el agente tiende a probar al azar, pero si es 
+    bajo (0.01),va a repetir lo que ya cree que es mejor
+    
 2. ¿Para que sirve usar una politica epsilon-greedy?
-3. ¿Qué pasa con la política óptima y porqué si p_h es mayor a 0.5?
-4. ¿Y si es 0.5?
-5. ¿Y si es menor a 0.5?
-6. ¿Qué pasa si se modifica el valor de la tasa de aprendizaje?
-7. ¿Qué pasa si se modifica el valor de gama?
+    Para que el agente no este haciendo siempre lo mismo y no se quede atrapado en una 
+    política. Puede que aprenda o que se quede con lo que ya aprendio
 
-***************************************************************************************
+3. ¿Qué pasa con la política óptima y porqué si p_h es mayor a 0.5?
+    Si p_h>0.5, el agente tiene mas probabilidad de ganar, por lo que el agente va a 
+    aprender con más optimalidad, resultando en que la política óptima sea más agresiva
+
+4. ¿Y si es 0.5?
+    El juego se vuelve más parejo, la probabilidad de ganar o perder es la misma
+
+5. ¿Y si es menor a 0.5?
+    El agente tiene más probabilidad de perder, por lo que la política óptima va a ser 
+    más conservadora. El agente va a aprender a no arriesgarse tanto
+
+6. ¿Qué pasa si se modifica el valor de la tasa de aprendizaje?
+    Cuando el agente aprende con cada jugada, se va a modificar la función de valor
+    La tasa de aprendizaje (alfa) es un parámetro que controla la velocidad de 
+    aprendizaje del agente. Si es alto, cambia con cada paso, pero si es bajo, aprende lento
+
+7. ¿Qué pasa si se modifica el valor de gama?
+    Gamma representa lo que le importa el futuro al agente.
+    Si es alto, piensa más en el futuro, pero si es bajo, solo quiere la recompensa rápida
+**************************************************************************************
 
 """
