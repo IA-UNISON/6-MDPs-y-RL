@@ -68,11 +68,36 @@ Ahora responde a las siguientes preguntas:
 **********************************************************************************
 
 - Prueba con diferentes valores de rho. ¿Qué observas? ¿Porqué crees que pase eso?
+Siendo 0.9 el valor default de rho, al cambiarlo a 0.1, los tramos tomados fueron muy
+grandes. Por ejemplo, con 0.9 los primeros dos pasos segun Sarsa fueron 2 y 4,
+con 0.1 fueron 11 y 35. Si se cambia el valor a 2, fueron 2, y 3. Esto se debe a que
+el si el Camion Magico funciona o no es inversamente proporcional al valor de rho. Sin
+embargo, el que los saltos de valores sean mayores cuando rho es menor se debe a que el
+agente espera a estar más cerca de la meta antes de arriesgarse a usar el camión, con el
+fin de maximizar el impacto del salto en caso de que funcione.
+
 - Prueba con diferentes valores de gama. ¿Qué observas? ¿Porqué crees que pase eso?
+Siendo su valor default de 0.999, al cambiarlo a 0.009 no hay resultados, y al cambiarlo a
+2 se obtuvieron muchos resultados, donde el valor maximo sacado por SARSA fue de 107, y el
+de Qlearning de 106. Esto se debe a que gama es que tanto valor el agente los valores obtenidos.
+Al ser este de un valor muy bajo, no acepta ninguno y por lo tanto no hubo resultados, siendo
+el caso opuesto al ser un valor muy alto.
+
 - ¿Qué tan diferente es la política óptima de SARSA y Q-learning?
+Qlearning parece priorizar mas el uso del Camion Magico a comparacion de SARSA, por lo que este
+es mas optimo, ya que SARSA va por un paso mas seguro pero lento, al alternar entre ambos camiones.
+
 - ¿Cambia mucho el resultado cambiando los valores de recompensa?
+Por como se explico antes, si, pues estos afectan el comportamiento del agente, aunque tales cambios
+son proporcionales.
+
 - ¿Cuantas iteraciones se necesitan para que funcionen correctamente los algoritmos?
+Esto depende de Tamaño de los Estados, que tanto se Explora y el Factor de Descuento. Aunque con
+100,000 Estados para las 50 iteraciones en SARSA y 1000 en Qlearning de este codigo se tienen suficientes.
+
 - ¿Qué pasaria si ahora el estado inicial es cualquier estado de la mitad para abajo?
+Pues para toda meta n, seria empezar desde un estado entre 1 a n/2, haciendo que la meta sea un valor aleatorio
+1 a meta-1, y su desempeño variaria de acuerdo a que tan bajo empiece.
 **********************************************************************************
 
 """

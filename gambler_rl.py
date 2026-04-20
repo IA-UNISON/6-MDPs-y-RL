@@ -59,12 +59,33 @@ print("-"*10 + '|' + "-"*10 + '|' + "-"*10)
 Responde las siguientes preguntas:
 ***************************************************************************************
 1. ¿Qué pasa si se modifica el valor de epsilón de la política epsilon-greedy?
+Si el valor de epsilon es alto, el agente tomara muchas pero ineficientes acciones aleatorias,
+y vicebersa si es bajo. Si es 0, no tomara decisiones.
+
 2. ¿Para que sirve usar una politica epsilon-greedy?
+Sirve para tomar decisiones de acuerdo a la recompensa que se nos da por cada una atravez
+de refuerso.
+
 3. ¿Qué pasa con la política óptima y porqué si p_h es mayor a 0.5?
+Siendo p_h la probabilidad de ganar una apuesta, entonces, en promedio, apostar sera
+favorable para el jugador.
+
 4. ¿Y si es 0.5?
+El juego se vuelve justo, pues el agente estara apostando y no por igual, aunque como consecuencia,
+el valor aprendido podria no variar lo suficiente.
+
 5. ¿Y si es menor a 0.5?
+El juego se vuelve desfavorable, pues apostar suele ser mas riesgoso y la politica implementada
+sera mas cautiva en cuanto a cuando apostar.
+
 6. ¿Qué pasa si se modifica el valor de la tasa de aprendizaje?
+Si el valor es grande, el agente se vuelve olvidadizo y el apendisaje inestable. Por ende, si es
+bajo, tanto el agente como el aprendisaje se vuelven lentos. Un valor promedio equilibra estos
+resultados.
+
 7. ¿Qué pasa si se modifica el valor de gama?
+Mientras menor el valor, mas priorizara el agente los resultados inmediatos. Mientras mayor, el
+agente priorizara los resultados proximos en vez de los inmediatos.
 
 ***************************************************************************************
 

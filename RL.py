@@ -7,9 +7,10 @@ from abc import ABCMeta, abstractmethod
 from random import choice, random
 
 class MDPsim(metaclass=ABCMeta):
-    def __init__(self, estados, gama):
-        self.estados = estados
-        self.gama = gama
+    def __init__(self, longitud, gama):
+        estados = list(range(longitud))
+        super().__init__(estados, gama)
+        self.meta = longitud - 1
         
     @abstractmethod
     def estado_inicial(self):
@@ -17,7 +18,7 @@ class MDPsim(metaclass=ABCMeta):
         Devuelve el estado inicial.
         
         """
-        raise NotImplementedError("Estado inicial no implementado")
+        return 0  # Comienza en 0
     
     @abstractmethod
     def acciones_legales(self, s):
@@ -25,7 +26,7 @@ class MDPsim(metaclass=ABCMeta):
         Devuelve una lista con las acciones legales en el estado s.
         
         """
-        raise NotImplementedError("Acciones legales no implementada")
+        return ['avanzar', 'quedarse']
     
     @abstractmethod
     def recompensa(self, s, a, s_):
@@ -33,22 +34,25 @@ class MDPsim(metaclass=ABCMeta):
         Devuelve la recompensa de la transición s, a, s'.
         
         """
-        raise NotImplementedError("Recompensa no implementada")
+        if s_ == self.meta:
+            return 10  # Recompensa por alcanzar la meta
+        return -1  # Costo por moverse o esperar
     
     @abstractmethod
-    def transicion(self, s, a):
+    def transicion(self, s, a, s_):
         """
         Devuelve el estado s'
         
         """
-        raise NotImplementedError("Transición no implementada")
+        if a == 'avanzar':
+            return min(s + 1, self.meta)
+        elif a == 'quedarse':
+            return s
+        else:
+            raise ValueError("Acción no válida")
     
     def es_terminal(self, s):
-        """
-        Devuelve True si el estado s es terminal.
-        
-        """
-        return False
+        return s == self.meta
 
 class Politica(metaclass=ABCMeta):
     @abstractmethod
